@@ -22,7 +22,8 @@ def p(url):
         )
     except requests.exceptions.RequestException as e:
         return f"errrror: {str(e)}..."
-    resp_headers = [(k, v) for k, v in r.raw.headers.items() if k.lower() not in e_headers]
+    r_headers = [(k, v) for k, v in r.raw.headers.items() if k.lower() not in e_headers]
+    return Response(r.content, r.status_code, r_headers)
 
 if __name__ == '__main__':
     app.run(port=5000)
