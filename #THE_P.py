@@ -3,8 +3,6 @@
 from flask import Flask, request, Response
 import requests
 
-app = Flask, request, Response
-
 app = Flask(__name__)
 
 @app.route('/p/<path:url>', methods=['GET', 'POST', 'PUT', 'DELETE'])
